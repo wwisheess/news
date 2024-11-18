@@ -1,15 +1,17 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Header from './components/Header/Header';
 
 import './App.css';
+import Footer from './components/Footer/Footer';
 
-function App() {
+export default function App() {
   return (
-    <div>
+    <>
       <Header />
-      <Outlet />
-    </div>
+      <div className='container'>
+        <Outlet />
+      </div>
+      <Footer />
+    </>
   );
 }
-
-export default App;

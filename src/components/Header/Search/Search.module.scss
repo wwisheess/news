@@ -1,0 +1,36 @@
+.input_wrapper {
+  position: relative;
+  display: inline;
+
+  input {
+    height: 100%;
+    font-size: 16px;
+    padding: 10px 8px 10px 40px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1.2px solid var(--gray);
+    transition: all var(--transition-02);
+
+    &::placeholder {
+      color: #bebebe;
+    }
+
+    &:focus-visible {
+      border-color: #282828;
+    }
+  }
+
+  &::before {
+    content: '';
+    opacity: 0.3;
+    background-image: url('/src/assets/search_magnifier_icon_145939.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

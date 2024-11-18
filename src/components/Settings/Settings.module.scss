@@ -1,0 +1,30 @@
+.settings_btn {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  padding: 10px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 75%;
+    background-image: url('/src/assets/settings-svgrepo-com.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.3;
+    transition: all var(--transition-02);
+  }
+
+  &:hover {
+    background-color: var(--gray);
+    &::before {
+      opacity: 0.4;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.nav_link {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  line-height: 20px;
+  transition: background-color var(--transition-02);
+
+  &:hover {
+    background-color: var(--gray);
+  }
+}

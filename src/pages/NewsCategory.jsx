@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import NewsItem from '../components/NewsItem/NewsItem';
 import { useApiKey } from '../hooks/ApiKeyContext';
@@ -26,7 +27,10 @@ async function fetchNews(key) {
   }
 }
 
-export default function NewsList() {
+export default function NewsCategory() {
+  const { category } = useParams();
+  console.log(category);
+
   const API_KEY = useApiKey();
   const [news, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);

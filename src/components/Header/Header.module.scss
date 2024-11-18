@@ -1,3 +1,48 @@
-nav {
-  padding: 20px;
+:root {
+  --gap: 20px;
+}
+
+.header {
+  position: sticky;
+  background-color: #fff;
+  z-index: 5;
+  top: 0;
+  margin-bottom: var(--section-gap);
+  border-bottom: 1.2px solid var(--gray);
+
+  .header_inner {
+    max-width: 1290px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    nav {
+      position: relative;
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between;
+
+      // &::after {
+      //   position: absolute;
+      //   content: '';
+      //   bottom: 0;
+      //   height: 1.2px;
+      //   background-color: var(--gray);
+      //   left: 50%;
+      //   transform: translateX(-50%);
+      //   width: 100vw;
+      // }
+
+      .nav_links {
+        display: flex;
+        gap: var(--gap);
+      }
+
+      .search_settings {
+        height: 100%;
+        display: flex;
+        gap: var(--gap);
+        align-items: center;
+      }
+    }
+  }
 }
