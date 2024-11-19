@@ -1,3 +1,4 @@
+import Loader from '../components/Loader/Loader';
 import NewsSection from '../components/NewsSection/NewsSection';
 import Title from '../components/Title/Title';
 

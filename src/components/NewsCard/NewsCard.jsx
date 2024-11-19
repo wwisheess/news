@@ -1,8 +1,21 @@
 import s from './NewsCard.module.scss';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import ExternalLinkModal from '../ExternalLinkModal/ExternalLinkModal';
 
 export default function NewsCard({ data }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [externalUrl, setExternalUrl] = useState('');
+
+  const handleReadMoreClick = (url) => {
+    setExternalUrl(url);
+    setIsModalOpen(true);
+  };
+
+  const handleConfirm = () => {
+    setIsModalOpen(false);
+    window.open(externalUrl, '_blank');
+  };
+
   const decodeHtmlEntities = (text) => {
     const parser = new DOMParser();
     const decodedString = parser.parseFromString(text, 'text/html')
@@ -28,7 +41,12 @@ export default function NewsCard({ data }) {
           )}
         </div>
 
-        <Link to={`/`}>Read more...</Link>
+        <button
+          onClick={() => handleReadMoreClick(data.url)}
+          className={s.read_more_button}
+        >
+          Read in full...
+        </button>
       </div>
 
       {data.image ? (
@@ -38,6 +56,13 @@ export default function NewsCard({ data }) {
       ) : (
         ''
       )}
+
+      <ExternalLinkModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={handleConfirm}
+        message='You are about to visit an external website. Do you want to proceed?'
+      />
     </div>
   );
 }
