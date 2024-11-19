@@ -1,6 +1,6 @@
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import Title from '../../components/Title/Title';
-import s from './Categories.module.scss';
+import s from './AllCategories.module.scss';
 
 const categories = [
   {
@@ -19,12 +19,12 @@ const categories = [
     img: 'https://plus.unsplash.com/premium_photo-1664537975122-9c598d85816e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
-    name: 'Education',
-    desc: 'News related to schools, universities, and educational advancements.',
-    img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'General',
+    desc: 'Stay informed with the latest general news covering politics, society, and global events.',
+    img: 'https://plus.unsplash.com/premium_photo-1681488098851-e3913f3b1908?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
-    name: 'Tech',
+    name: 'Technology',
     desc: 'Updates on the latest tech innovations, gadgets, and digital trends.',
     img: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
@@ -43,29 +43,29 @@ const categories = [
     desc: 'Discoveries, studies, and breakthroughs in the world of science.',
     img: 'https://plus.unsplash.com/premium_photo-1661432575489-b0400f4fea58?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
-  {
-    name: 'Environment',
-    desc: 'Stories about climate change, sustainability, and ecological preservation.',
-    img: 'https://plus.unsplash.com/premium_photo-1664637952509-c2627f44406b?q=80&w=2575&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    name: 'Crime',
-    desc: 'Reports on criminal cases, investigations, and public safety.',
-    img: 'https://plus.unsplash.com/premium_photo-1673543763736-f74c4b14a007?q=80&w=2637&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    name: 'Travel',
-    desc: 'Insights into travel destinations, tips, and global tourism trends.',
-    img: 'https://plus.unsplash.com/premium_photo-1664368832311-7fe635e32c7c?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    name: 'World',
-    desc: 'Global news and events from around the world.',
-    img: 'https://plus.unsplash.com/premium_photo-1681488098851-e3913f3b1908?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
+  // {
+  //   name: 'Environment',
+  //   desc: 'Stories about climate change, sustainability, and ecological preservation.',
+  //   img: 'https://plus.unsplash.com/premium_photo-1664637952509-c2627f44406b?q=80&w=2575&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  // },
+  // {
+  //   name: 'Crime',
+  //   desc: 'Reports on criminal cases, investigations, and public safety.',
+  //   img: 'https://plus.unsplash.com/premium_photo-1673543763736-f74c4b14a007?q=80&w=2637&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  // },
+  // {
+  //   name: 'Travel',
+  //   desc: 'Insights into travel destinations, tips, and global tourism trends.',
+  //   img: 'https://plus.unsplash.com/premium_photo-1664368832311-7fe635e32c7c?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  // },
+  // {
+  //   name: 'World',
+  //   desc: 'Global news and events from around the world.',
+  //   img: 'https://plus.unsplash.com/premium_photo-1681488098851-e3913f3b1908?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  // },
 ];
 
-export default function Categories() {
+export default function AllCategories() {
   return (
     <div className={s.container}>
       <Title title='All news categories' />
@@ -73,8 +73,8 @@ export default function Categories() {
         {categories.map((category, index) => {
           return (
             <CategoryCard
+              key={index}
               index={index}
-              key={category.name}
               name={category.name}
               desc={category.desc}
               img={category.img}

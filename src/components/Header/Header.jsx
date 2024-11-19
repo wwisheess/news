@@ -9,7 +9,7 @@ const navLinks = [
   { name: 'Home', url: '/' },
   { name: 'Latest News', url: '/news/latest' },
   {
-    name: 'All Categories',
+    name: 'Categories',
     url: '/categories',
     dropdownLinks: [
       {
@@ -23,14 +23,6 @@ const navLinks = [
       {
         name: 'Sports',
         url: '/news/sports',
-      },
-      {
-        name: 'Technology',
-        url: '/news/technology',
-      },
-      {
-        name: 'Health',
-        url: '/news/health',
       },
       {
         name: 'See all...',

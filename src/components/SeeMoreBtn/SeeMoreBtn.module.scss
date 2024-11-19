@@ -1,0 +1,18 @@
+.btn_container {
+  display: flex;
+  justify-content: center;
+
+  button {
+    padding: 10px 20px;
+    border-radius: 16px;
+    font-size: 18px;
+    width: 300px;
+    outline: 1.2px solid var(--gray);
+    transition: all var(--transition-02);
+
+    &:hover {
+      background-color: var(--gray);
+      transform: translateY(-5px);
+    }
+  }
+}
