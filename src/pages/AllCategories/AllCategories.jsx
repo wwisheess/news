@@ -43,26 +43,6 @@ const categories = [
     desc: 'Discoveries, studies, and breakthroughs in the world of science.',
     img: 'https://plus.unsplash.com/premium_photo-1661432575489-b0400f4fea58?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
-  // {
-  //   name: 'Environment',
-  //   desc: 'Stories about climate change, sustainability, and ecological preservation.',
-  //   img: 'https://plus.unsplash.com/premium_photo-1664637952509-c2627f44406b?q=80&w=2575&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  // },
-  // {
-  //   name: 'Crime',
-  //   desc: 'Reports on criminal cases, investigations, and public safety.',
-  //   img: 'https://plus.unsplash.com/premium_photo-1673543763736-f74c4b14a007?q=80&w=2637&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  // },
-  // {
-  //   name: 'Travel',
-  //   desc: 'Insights into travel destinations, tips, and global tourism trends.',
-  //   img: 'https://plus.unsplash.com/premium_photo-1664368832311-7fe635e32c7c?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  // },
-  // {
-  //   name: 'World',
-  //   desc: 'Global news and events from around the world.',
-  //   img: 'https://plus.unsplash.com/premium_photo-1681488098851-e3913f3b1908?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  // },
 ];
 
 export default function AllCategories() {

@@ -1,5 +1,5 @@
 import s from './NewsCard.module.scss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ExternalLinkModal from '../ExternalLinkModal/ExternalLinkModal';
 
 export default function NewsCard({ data }) {
@@ -25,6 +25,12 @@ export default function NewsCard({ data }) {
 
   return (
     <div className={s.news_card}>
+      {data.image && (
+        <div className={s.news_img_container}>
+          {<img src={data.image} alt='News image' />}
+        </div>
+      )}
+
       <div className={s.news_text_container}>
         <div className={s.text_container_inner}>
           <div className={s.source_date_container}>
@@ -48,14 +54,6 @@ export default function NewsCard({ data }) {
           Read in full...
         </button>
       </div>
-
-      {data.image ? (
-        <div className={s.news_img_container}>
-          {data.image ? <img src={data.image} alt='News image' /> : ''}
-        </div>
-      ) : (
-        ''
-      )}
 
       <ExternalLinkModal
         isOpen={isModalOpen}

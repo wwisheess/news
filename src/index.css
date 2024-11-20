@@ -4,5 +4,9 @@
 
   --transition-02: 0.2s ease-in-out;
   --transition-04: 0.4s ease-in-out;
+
   --gray: #f3f3f3;
+  --gray-darken: #e9e9e9;
+
+  --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }

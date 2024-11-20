@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
-import Home from './pages/Home';
+import Home from './pages/Home/Home.jsx';
 import NewsCategory from './pages/NewsCategory/NewsCategory.jsx';
 
 import './index.css';

@@ -4,9 +4,7 @@ import s from './Dropdown.module.scss';
 export default function Dropdown({ url, name, dropdownLinks }) {
   return (
     <div className={s.dropdown_item}>
-      <Link to={url} className={s.dropdown_link}>
-        {name}
-      </Link>
+      <button>{name}</button>
       {dropdownLinks && (
         <div className={s.dropdown_menu}>
           {dropdownLinks.map((link, index) => (

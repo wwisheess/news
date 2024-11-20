@@ -3,6 +3,26 @@
   flex-direction: column;
   gap: 30px;
   margin-bottom: 50px;
+
+  .news_row {
+    align-items: start;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 20px;
+
+    &:nth-child(odd) {
+      grid-template-columns: 3fr 2fr;
+    }
+
+    &:nth-child(even) {
+      grid-template-columns: 2fr 3fr;
+    }
+  }
+}
+
+.more_btn_container {
+  display: flex;
+  justify-content: center;
 }
 
 .shown_message {

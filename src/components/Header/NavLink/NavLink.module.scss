@@ -9,4 +9,8 @@
   &:hover {
     background-color: var(--gray);
   }
+
+  &:active {
+    background-color: var(--gray-darken);
+  }
 }

@@ -12,7 +12,7 @@ export default function NewsCategory() {
   const { category } = useParams();
   const [visibleNews, setVisibleNews] = useState([]);
   const [allNews, setAllNews] = useState([]);
-  const [showCount, setShowCount] = useState(5);
+  const [showCount, setShowCount] = useState(6);
   const [hasMore, setHasMore] = useState(true);
 
   const params = useMemo(
@@ -20,7 +20,7 @@ export default function NewsCategory() {
       countries: 'us,gb,ca',
       languages: 'en',
       categories: category === 'latest' ? 'general' : category,
-      limit: 50,
+      limit: 60,
     }),
     [category]
   );
@@ -33,13 +33,13 @@ export default function NewsCategory() {
   useEffect(() => {
     if (data?.data) {
       setAllNews(data.data);
-      setVisibleNews(data.data.slice(0, 5));
-      setHasMore(data.data.length > 5);
+      setVisibleNews(data.data.slice(0, showCount));
+      setHasMore(data.data.length > showCount);
     }
   }, [data]);
 
   const loadMore = () => {
-    const nextCount = showCount + 5;
+    const nextCount = showCount + 6;
     setVisibleNews(allNews.slice(0, nextCount));
     setShowCount(nextCount);
     setHasMore(nextCount < allNews.length);
@@ -58,13 +58,22 @@ export default function NewsCategory() {
       ) : (
         <>
           <div className={s.news_container}>
-            {visibleNews.map((item, index) => (
-              <NewsCard key={index} data={item} />
-            ))}
+            {visibleNews.map((_, index) =>
+              index % 2 === 0 ? (
+                <div key={index} className={s.news_row}>
+                  <NewsCard data={visibleNews[index]} />
+                  {visibleNews[index + 1] && (
+                    <NewsCard data={visibleNews[index + 1]} />
+                  )}
+                </div>
+              ) : null
+            )}
           </div>
 
           {hasMore ? (
-            <SeeMoreBtn text={'See more'} onClick={loadMore} />
+            <div className={s.more_btn_container}>
+              <SeeMoreBtn text={'See more'} onClick={loadMore} />
+            </div>
           ) : (
             <p className={s.shown_message}>
               The number of news items specified in your limit is shown.

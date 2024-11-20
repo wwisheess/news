@@ -3,7 +3,7 @@ import s from './Header.module.scss';
 import Link from './NavLink/NavLink';
 import Search from './Search/Search';
 import Dropdown from './Dropdown/Dropdown';
-import Settings from '../Settings/Settings';
+import SettingsBtn from '../Settings/SettingsBtn/SettingsBtn';
 
 const navLinks = [
   { name: 'Home', url: '/' },
@@ -55,7 +55,7 @@ export default function Header() {
           </div>
           <div className={s.search_settings}>
             <Search />
-            <Settings />
+            <SettingsBtn />
           </div>
         </nav>
       </div>

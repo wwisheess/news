@@ -23,12 +23,14 @@ export default function CategoryCard({ name, desc, img, index }) {
         <h2>{name}</h2>
         <p>{desc}</p>
       </div>
-      <div
-        style={isEven ? { order: 2 } : { order: 1 }}
-        className={s.img_container}
-      >
-        <img src={img} alt='News category image' />
-      </div>
+      {img && (
+        <div
+          style={isEven ? { order: 2 } : { order: 1 }}
+          className={s.img_container}
+        >
+          <img src={img} alt='News category image' />
+        </div>
+      )}
     </Link>
   );
 }

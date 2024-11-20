@@ -1,4 +1,4 @@
-import s from './Settings.module.scss';
+import s from './SettingsBtn.module.scss';
 
 export default function Settings() {
   return (
