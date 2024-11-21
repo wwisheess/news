@@ -1,19 +1,19 @@
 .btn {
+  @include fadeInTransform;
   text-transform: uppercase;
   padding: 10px 20px;
-  border-radius: 16px;
+  border-radius: 12px;
   font-size: 16px;
   width: 300px;
-  border: 1.2px solid var(--gray);
-  transition: all var(--transition-02);
+  border: $border;
+  transition: all $transition-02;
 
   &:hover {
-    background-color: var(--gray);
     transform: translateY(-5px);
-    box-shadow: var(--shadow);
+    box-shadow: $shadow;
   }
 
   &:active {
-    background-color: var(--gray-darken);
+    background-color: $gray;
   }
 }

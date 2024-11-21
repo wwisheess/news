@@ -1,4 +1,28 @@
-.view_all_container {
+.section {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+
+  h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 34px;
+    text-transform: uppercase;
+  }
+
+  .category_cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
+  }
+
+  .view_all_container {
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -1,0 +1,25 @@
+.dropdown_menu {
+  top: 60%;
+  width: 100%;
+  gap: 5px;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: 10;
+  background-color: $white;
+  flex-direction: column;
+  padding: 15px;
+  border: $border;
+  border-radius: 8px;
+  transition: all $transition-02;
+
+  a {
+    display: inline-block;
+    transition: transform $transition-02;
+
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
+}

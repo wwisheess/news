@@ -5,7 +5,6 @@ import App from './App';
 import Home from './pages/Home/Home.jsx';
 import NewsCategory from './pages/NewsCategory/NewsCategory.jsx';
 
-import './index.css';
 import AllCategories from './pages/AllCategories/AllCategories.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

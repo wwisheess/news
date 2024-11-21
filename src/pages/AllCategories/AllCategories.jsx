@@ -47,7 +47,7 @@ const categories = [
 
 export default function AllCategories() {
   return (
-    <div className={s.container}>
+    <>
       <Title title='All news categories' />
       <div className={s.category_cards}>
         {categories.map((category, index) => {
@@ -62,6 +62,6 @@ export default function AllCategories() {
           );
         })}
       </div>
-    </div>
+    </>
   );
 }

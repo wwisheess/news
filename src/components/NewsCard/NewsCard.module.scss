@@ -1,12 +1,13 @@
 .news_card {
-  background-color: #fff;
+  background-color: $white;
   padding: 1rem;
   border-radius: 8px;
-  outline: 1.2px solid var(--gray);
-  gap: 60px;
+  outline: $border;
+  gap: 20px;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow);
+  box-shadow: $shadow;
+  @include fadeInTransform;
 
   .news_text_container {
     width: 100%;
@@ -37,6 +38,10 @@
         justify-content: space-between;
         gap: 10px;
         opacity: 0.5;
+
+        .publish_date {
+          text-align: right;
+        }
       }
 
       p {
@@ -51,16 +56,16 @@
       justify-self: flex-end;
       text-align: center;
       width: 150px;
-      outline: 1.2px solid var(--gray);
-      background-color: #fff;
-      transition: background-color var(--transition-02);
+      outline: $border;
+      background-color: $white;
+      transition: background-color $transition-02;
 
       &:hover {
-        background-color: var(--gray);
+        background-color: $gray;
       }
 
       &:active {
-        background-color: var(--gray-darken);
+        background-color: $gray-darken;
       }
     }
   }
@@ -70,7 +75,7 @@
     max-height: 250px;
     border-radius: 8px;
     overflow: hidden;
-    background-color: var(--gray);
+    background-color: $gray;
     display: flex;
     align-items: center;
     justify-content: center;

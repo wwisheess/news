@@ -20,7 +20,7 @@ export default function NewsCategory() {
       countries: 'us,gb,ca',
       languages: 'en',
       categories: category === 'latest' ? 'general' : category,
-      limit: 60,
+      limit: 100,
     }),
     [category]
   );
@@ -46,7 +46,7 @@ export default function NewsCategory() {
   };
 
   return (
-    <div>
+    <>
       <Title title={`${category} news`} />
 
       {loading ? (
@@ -70,6 +70,12 @@ export default function NewsCategory() {
             )}
           </div>
 
+          {/* <div className={s.news_container}>
+            {visibleNews.map((item, index) => (
+              <NewsCard key={index} data={item} />
+            ))}
+          </div> */}
+
           {hasMore ? (
             <div className={s.more_btn_container}>
               <SeeMoreBtn text={'See more'} onClick={loadMore} />
@@ -81,6 +87,6 @@ export default function NewsCategory() {
           )}
         </>
       )}
-    </div>
+    </>
   );
 }

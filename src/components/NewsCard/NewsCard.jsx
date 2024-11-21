@@ -23,6 +23,12 @@ export default function NewsCard({ data }) {
     return decodedString;
   };
 
+  const publishDate = new Date(data.published_at);
+  const formattedPublishDate = publishDate
+    .toISOString()
+    .slice(0, 16)
+    .replace('T', ' ');
+
   return (
     <div className={s.news_card}>
       {data.image && (
@@ -35,7 +41,7 @@ export default function NewsCard({ data }) {
         <div className={s.text_container_inner}>
           <div className={s.source_date_container}>
             <span>Source: {data.source} </span>
-            <span>{data.published_at.slice(0, 10)}</span>
+            <span className={s.publish_date}>{formattedPublishDate}</span>
           </div>
           <h2>{decodeHtmlEntities(data.title)}</h2>
           <p>{decodeHtmlEntities(data.description)}</p>

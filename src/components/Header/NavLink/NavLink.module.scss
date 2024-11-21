@@ -4,13 +4,13 @@
   border-radius: 8px;
   font-weight: 500;
   line-height: 20px;
-  transition: background-color var(--transition-02);
+  transition: background-color $transition-02;
 
   &:hover {
-    background-color: var(--gray);
+    background-color: $gray;
   }
 
   &:active {
-    background-color: var(--gray-darken);
+    background-color: $gray-darken;
   }
 }

@@ -4,23 +4,14 @@ import s from './CategoryCard.module.scss';
 
 export default function CategoryCard({ name, desc, img, index }) {
   const isEven = index % 2 === 0;
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timeout);
-  }, []);
 
   return (
-    <Link
-      to={`/news/${name.toLowerCase()}`}
-      className={`${s.card} ${isVisible ? s.card_visible : ''}`}
-    >
+    <Link to={`/news/${name.toLowerCase()}`} className={s.card}>
       <div
         className={s.text_container}
         style={isEven ? { order: 1 } : { order: 2 }}
       >
-        <h2>{name}</h2>
+        <h3>{name}</h3>
         <p>{desc}</p>
       </div>
       {img && (

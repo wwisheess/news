@@ -30,10 +30,7 @@ export default function ExternalLinkModal({
   if (!isOpen) return null;
 
   return (
-    <div
-      className={`${s.modal_overlay} ${isOpen ? s.show : ''}`}
-      onClick={onClose}
-    >
+    <div className={s.modal_overlay} onClick={onClose}>
       <div className={s.modal}>
         <p>{message}</p>
         <div className={s.buttons}>

@@ -2,7 +2,7 @@ import s from './Header.module.scss';
 
 import Link from './NavLink/NavLink';
 import Search from './Search/Search';
-import Dropdown from './Dropdown/Dropdown';
+import DropdownBtn from './DropdownBtn/DropdownBtn';
 import SettingsBtn from '../Settings/SettingsBtn/SettingsBtn';
 
 const navLinks = [
@@ -41,7 +41,7 @@ export default function Header() {
             {navLinks.map((link, index) => {
               if (link.dropdownLinks) {
                 return (
-                  <Dropdown
+                  <DropdownBtn
                     key={index}
                     url={link.url}
                     name={link.name}

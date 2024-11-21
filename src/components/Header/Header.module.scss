@@ -1,13 +1,10 @@
-:root {
-  --gap: 20px;
-}
-
 .header {
   position: sticky;
-  background-color: #fff;
+  background-color: $white;
   z-index: 5;
   top: 0;
-  border-bottom: 1.2px solid var(--gray);
+  border-radius: 0 0 30px 30px;
+  border-bottom: $border;
 
   .header_inner {
     max-width: 1290px;
@@ -20,26 +17,15 @@
       display: flex;
       justify-content: space-between;
 
-      // &::after {
-      //   position: absolute;
-      //   content: '';
-      //   bottom: 0;
-      //   height: 1.2px;
-      //   background-color: var(--gray);
-      //   left: 50%;
-      //   transform: translateX(-50%);
-      //   width: 100vw;
-      // }
-
       .nav_links {
         display: flex;
-        gap: var(--gap);
+        gap: 20px;
       }
 
       .search_settings {
         height: 100%;
         display: flex;
-        gap: var(--gap);
+        gap: 20px;
         align-items: center;
       }
     }

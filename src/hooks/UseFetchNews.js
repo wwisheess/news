@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_KEY = 'def196129cc65a2c33505d8d978d2baf';
+const API_KEY = '6f02c12dc6befc506a0c56eeec3af79f';
 
 export default function useFetchNews({ endpoint, params }) {
   const [data, setData] = useState(null);

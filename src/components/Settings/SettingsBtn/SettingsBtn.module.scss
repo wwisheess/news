@@ -17,11 +17,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.3;
-    transition: all var(--transition-02);
+    transition: all $transition-02;
   }
 
   &:hover {
-    background-color: var(--gray);
+    background-color: $gray;
     &::before {
       opacity: 0.4;
       transform: translate(-50%, -50%) rotate(90deg);

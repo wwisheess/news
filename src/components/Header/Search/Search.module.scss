@@ -8,15 +8,15 @@
     padding: 10px 8px 10px 40px;
     border-radius: 8px;
     font-weight: 500;
-    border: 1.2px solid var(--gray);
-    transition: all var(--transition-02);
+    border: $border;
+    transition: all $transition-02;
 
     &::placeholder {
       color: #bebebe;
     }
 
     &:focus-visible {
-      border-color: #282828;
+      border-color: $black;
     }
   }
 

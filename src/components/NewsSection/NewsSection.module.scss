@@ -9,7 +9,7 @@
   .news_card_big {
     width: 50%;
     height: 490px;
-    background-color: var(--gray);
+    background-color: $gray;
   }
 
   .small_cards_container {
@@ -20,7 +20,7 @@
   }
 
   .news_card_small {
-    background-color: var(--gray);
+    background-color: $gray;
     width: 100%;
     height: 150px;
   }
