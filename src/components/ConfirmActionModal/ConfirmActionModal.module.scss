@@ -43,30 +43,6 @@
       display: flex;
       justify-content: space-between;
       gap: 10px;
-
-      button {
-        transition: background-color $transition-02;
-      }
-
-      .confirm {
-        outline: 1.2px solid $green;
-        padding: 10px 20px;
-        border-radius: 8px;
-
-        &:hover {
-          background-color: $green;
-        }
-      }
-
-      .cancel {
-        outline: 1.2px solid $red;
-        padding: 10px 20px;
-        border-radius: 8px;
-
-        &:hover {
-          background-color: $red;
-        }
-      }
     }
   }
 }

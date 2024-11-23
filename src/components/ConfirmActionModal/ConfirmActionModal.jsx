@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import s from './ExternalLinkModal.module.scss';
+import s from './ConfirmActionModal.module.scss';
+import Button from '../Button/Button';
 
-export default function ExternalLinkModal({
+export default function ConfirmActionModal({
   isOpen,
   onClose,
   onConfirm,
@@ -27,19 +28,21 @@ export default function ExternalLinkModal({
     }
   };
 
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
-    <div className={s.modal_overlay} onClick={onClose}>
+    <div className={s.modal_overlay} onClick={handleOverlayClick}>
       <div className={s.modal}>
         <p>{message}</p>
         <div className={s.buttons}>
-          <button onClick={onConfirm} className={s.confirm}>
-            Confirm
-          </button>
-          <button onClick={onClose} className={s.cancel}>
-            Cancel
-          </button>
+          <Button onClick={onConfirm} text='Confirm' color='green' />
+          <Button onClick={onClose} text='Cancel' color='red' />
         </div>
       </div>
     </div>

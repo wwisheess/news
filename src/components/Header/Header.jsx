@@ -3,7 +3,9 @@ import s from './Header.module.scss';
 import Link from './NavLink/NavLink';
 import Search from './Search/Search';
 import DropdownBtn from './DropdownBtn/DropdownBtn';
-import SettingsBtn from '../Settings/SettingsBtn/SettingsBtn';
+import SettingsBtn from './SettingsBtn/SettingsBtn';
+import SettingsModal from './SettingsModal/SettingsModal';
+import { useState } from 'react';
 
 const navLinks = [
   { name: 'Home', url: '/' },
@@ -33,6 +35,12 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function handleSettingsClick() {
+    setIsModalOpen(true);
+  }
+
   return (
     <header className={s.header}>
       <div className={s.header_inner}>
@@ -55,7 +63,11 @@ export default function Header() {
           </div>
           <div className={s.search_settings}>
             <Search />
-            <SettingsBtn />
+            <SettingsBtn onClick={() => handleSettingsClick()} />
+            <SettingsModal
+              isOpen={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
+            />
           </div>
         </nav>
       </div>

@@ -1,0 +1,29 @@
+.btn {
+  padding: 5px 10px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 14px;
+  justify-self: flex-end;
+  text-align: center;
+  border: $border;
+  background-color: $white;
+  transition: background-color $transition-02;
+  @include fadeIn;
+
+  &.active {
+    background-color: $gray;
+    border-color: $gray-darken;
+
+    &:hover {
+      background-color: $gray-darken;
+    }
+  }
+
+  &:hover {
+    background-color: $gray;
+  }
+
+  &:active {
+    background-color: $gray-darken;
+  }
+}

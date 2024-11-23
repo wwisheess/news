@@ -48,26 +48,6 @@
         font-size: 20px;
       }
     }
-
-    button {
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 18px;
-      justify-self: flex-end;
-      text-align: center;
-      width: 150px;
-      outline: $border;
-      background-color: $white;
-      transition: background-color $transition-02;
-
-      &:hover {
-        background-color: $gray;
-      }
-
-      &:active {
-        background-color: $gray-darken;
-      }
-    }
   }
 
   .news_img_container {

@@ -1,0 +1,58 @@
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  @include fadeIn;
+
+  .modal {
+    position: relative;
+    background: $white;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    flex-direction: column;
+    border: $border;
+    padding: 1.5rem;
+    width: 40%;
+    border-radius: 8px;
+    box-shadow: $shadow;
+    text-align: center;
+    @include fadeInTransform;
+
+    h3 {
+      font-weight: 600px;
+      font-size: 30px;
+      text-transform: uppercase;
+    }
+
+    .modal_content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      .content_inner {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        // width: 45%;
+
+        .choose_items_container {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px;
+        }
+      }
+    }
+    .button_container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

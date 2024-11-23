@@ -1,6 +1,7 @@
 import s from './NewsCard.module.scss';
 import { useState } from 'react';
-import ExternalLinkModal from '../ExternalLinkModal/ExternalLinkModal';
+import ConfirmActionModal from '../ConfirmActionModal/ConfirmActionModal';
+import Button from '../Button/Button';
 
 export default function NewsCard({ data }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,15 +54,13 @@ export default function NewsCard({ data }) {
           )}
         </div>
 
-        <button
+        <Button
+          text='Read in full...'
           onClick={() => handleReadMoreClick(data.url)}
-          className={s.read_more_button}
-        >
-          Read in full...
-        </button>
+        />
       </div>
 
-      <ExternalLinkModal
+      <ConfirmActionModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onConfirm={handleConfirm}

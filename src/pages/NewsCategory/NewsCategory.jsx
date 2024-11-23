@@ -8,6 +8,8 @@ import Loader from '../../components/Loader/Loader.jsx';
 import s from './NewsCategory.module.scss';
 import SeeMoreBtn from '../../components/SeeMoreBtn/SeeMoreBtn.jsx';
 
+import { useNewsSettings } from '../../context/NewsSettingsContext.jsx';
+
 export default function NewsCategory() {
   const { category } = useParams();
   const [visibleNews, setVisibleNews] = useState([]);
@@ -15,14 +17,16 @@ export default function NewsCategory() {
   const [showCount, setShowCount] = useState(6);
   const [hasMore, setHasMore] = useState(true);
 
+  const { choosenCountries, choosenLanguages } = useNewsSettings();
+
   const params = useMemo(
     () => ({
-      countries: 'us,gb,ca',
-      languages: 'en',
       categories: category === 'latest' ? 'general' : category,
+      countries: choosenCountries.join(','),
+      languages: choosenLanguages.join(','),
       limit: 100,
     }),
-    [category]
+    [category, choosenCountries, choosenLanguages]
   );
 
   const { data, loading, error } = useFetchNews({
@@ -49,13 +53,25 @@ export default function NewsCategory() {
     <>
       <Title title={`${category} news`} />
 
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <div>Error: {error.message}</div>
-      ) : visibleNews.length === 0 ? (
-        <div>No news found.</div>
-      ) : (
+      {loading && <Loader />}
+
+      {error && (
+        <div className={s.shown_message}>
+          {error.status === 429
+            ? 'Error: API request limit exceeded.'
+            : error.status === 404
+            ? 'No news found for the selected category.'
+            : error.status === 401
+            ? 'Error: API key is not valid.'
+            : `An error occurred: ${error.message}`}
+        </div>
+      )}
+
+      {!loading && !error && visibleNews.length === 0 && (
+        <div className={s.shown_message}>No news available.</div>
+      )}
+
+      {!loading && !error && visibleNews.length > 0 && (
         <>
           <div className={s.news_container}>
             {visibleNews.map((_, index) =>
@@ -70,19 +86,13 @@ export default function NewsCategory() {
             )}
           </div>
 
-          {/* <div className={s.news_container}>
-            {visibleNews.map((item, index) => (
-              <NewsCard key={index} data={item} />
-            ))}
-          </div> */}
-
           {hasMore ? (
             <div className={s.more_btn_container}>
-              <SeeMoreBtn text={'See more'} onClick={loadMore} />
+              <SeeMoreBtn text='See more' onClick={loadMore} />
             </div>
           ) : (
             <p className={s.shown_message}>
-              The number of news items specified in your limit is shown.
+              The maximum number of news is displayed.
             </p>
           )}
         </>
