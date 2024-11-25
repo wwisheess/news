@@ -71,6 +71,8 @@ export default function SettingsModal({ isOpen, onClose }) {
     setChoosenLanguages,
     resetSettings,
   } = useNewsSettings();
+
+  const [isConfirmExitModalOpen, setIsConfirmExitModalOpen] = useState(false);
   const [isConfirmResetModalOpen, setIsConfirmResetModalOpen] = useState(false);
   const [localCountries, setLocalCountries] = useState(choosenCountries);
   const [localLanguages, setLocalLanguages] = useState(choosenLanguages);
@@ -94,7 +96,14 @@ export default function SettingsModal({ isOpen, onClose }) {
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
-      onClose();
+      if (
+        localCountries !== choosenCountries ||
+        localLanguages !== choosenLanguages
+      ) {
+        setIsConfirmExitModalOpen(true);
+      } else {
+        onClose();
+      }
     }
   };
 
@@ -170,16 +179,17 @@ export default function SettingsModal({ isOpen, onClose }) {
   };
 
   function handleSave() {
-    // console.log('Saving countries:', localCountries);
-    // console.log('Saving languages:', localLanguages);
     setChoosenCountries(localCountries);
     setChoosenLanguages(localLanguages);
     onClose();
   }
 
-  // useEffect(() => {
-  //   console.log(localCountries, localLanguages);
-  // }, [localCountries, localLanguages]);
+  function handleConfirmExit() {
+    setLocalCountries(choosenCountries);
+    setLocalLanguages(choosenLanguages);
+    setIsConfirmExitModalOpen(false);
+    onClose();
+  }
 
   if (!isOpen) return null;
 
@@ -225,6 +235,13 @@ export default function SettingsModal({ isOpen, onClose }) {
           onClose={() => setIsConfirmResetModalOpen(false)}
           onConfirm={handleConfirmReset}
           message='You are about to reset settings. Are you sure?'
+        />
+
+        <ConfirmActionModal
+          isOpen={isConfirmExitModalOpen}
+          onClose={() => setIsConfirmExitModalOpen(false)}
+          onConfirm={handleConfirmExit}
+          message='You have unsaved changes. Are you sure you want to leave without saving them?'
         />
       </div>
     </div>

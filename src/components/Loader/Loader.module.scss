@@ -3,6 +3,7 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  @include fadeIn;
 
   .loader {
     opacity: 0.7;

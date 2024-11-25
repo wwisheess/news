@@ -1,6 +1,6 @@
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import Title from '../../components/Title/Title';
-import s from './AllCategories.module.scss';
+import s from './Categories.module.scss';
 
 const categories = [
   {

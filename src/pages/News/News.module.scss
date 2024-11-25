@@ -1,3 +1,11 @@
+.countries_languages {
+  position: absolute;
+  left: 2rem;
+  top: 4rem;
+  color: #bebebe;
+  @include fadeInTransform;
+}
+
 .news_container {
   display: flex;
   flex-direction: column;

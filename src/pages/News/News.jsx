@@ -1,17 +1,22 @@
 import { useMemo, useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useSearchParams, useParams } from 'react-router-dom';
 import Title from '../../components/Title/Title.jsx';
 import NewsCard from '../../components/NewsCard/NewsCard.jsx';
 import useFetchNews from '../../hooks/UseFetchNews.js';
 import Loader from '../../components/Loader/Loader.jsx';
 
-import s from './NewsCategory.module.scss';
+import s from './News.module.scss';
 import SeeMoreBtn from '../../components/SeeMoreBtn/SeeMoreBtn.jsx';
 
 import { useNewsSettings } from '../../context/NewsSettingsContext.jsx';
 
-export default function NewsCategory() {
+export default function News() {
+  const [searchParams] = useSearchParams();
   const { category } = useParams();
+
+  const searchQuery = searchParams.get('search');
+  const isSearch = Boolean(searchQuery);
+
   const [visibleNews, setVisibleNews] = useState([]);
   const [allNews, setAllNews] = useState([]);
   const [showCount, setShowCount] = useState(6);
@@ -19,15 +24,25 @@ export default function NewsCategory() {
 
   const { choosenCountries, choosenLanguages } = useNewsSettings();
 
-  const params = useMemo(
-    () => ({
-      categories: category === 'latest' ? 'general' : category,
+  const params = useMemo(() => {
+    const baseParams = {
       countries: choosenCountries.join(','),
       languages: choosenLanguages.join(','),
       limit: 100,
-    }),
-    [category, choosenCountries, choosenLanguages]
-  );
+    };
+
+    if (isSearch) {
+      return {
+        ...baseParams,
+        keywords: searchQuery,
+      };
+    }
+
+    return {
+      ...baseParams,
+      categories: category === 'latest' ? 'general' : category,
+    };
+  }, [isSearch, searchQuery, category, choosenCountries, choosenLanguages]);
 
   const { data, loading, error } = useFetchNews({
     endpoint: 'http://api.mediastack.com/v1/news',
@@ -51,8 +66,6 @@ export default function NewsCategory() {
 
   return (
     <>
-      <Title title={`${category} news`} />
-
       {loading && <Loader />}
 
       {error && (
@@ -68,11 +81,29 @@ export default function NewsCategory() {
       )}
 
       {!loading && !error && visibleNews.length === 0 && (
-        <div className={s.shown_message}>No news available.</div>
+        <div className={s.shown_message}>
+          {isSearch
+            ? `Sorry, we couldn't find any news matching your search: "${searchQuery}"`
+            : `No news available :(`}
+        </div>
       )}
 
       {!loading && !error && visibleNews.length > 0 && (
         <>
+          <span
+            className={s.countries_languages}
+          >{`News from: ${choosenCountries.join(
+            ','
+          )}, Languages: ${choosenLanguages.join(',')}`}</span>
+
+          <Title
+            title={
+              isSearch
+                ? `Search results for "${searchQuery}"`
+                : `${category} news`
+            }
+          />
+
           <div className={s.news_container}>
             {visibleNews.map((_, index) =>
               index % 2 === 0 ? (

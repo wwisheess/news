@@ -1,10 +1,10 @@
 import s from './Home.module.scss';
 
-import NewsSection from '../../components/NewsSection/NewsSection';
 import Title from '../../components/Title/Title';
 import SeeMoreBtn from '../../components/SeeMoreBtn/SeeMoreBtn';
 import { Link } from 'react-router-dom';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
+import HomeSlider from '../../components/HomeSlider/HomeSlider';
 
 const categories = [
   {
@@ -29,7 +29,15 @@ export default function Home() {
   return (
     <>
       <Title title={'Stay Informed: Your Daily Dose of News'} />
-      <NewsSection />
+
+      <div className={s.section_container}>
+        <HomeSlider />
+        <div className={s.small_cards_container}>
+          <div className={s.news_card_small}></div>
+          <div className={s.news_card_small}></div>
+          <div className={s.news_card_small}></div>
+        </div>
+      </div>
 
       <section className={s.section}>
         <h2>Explore News by Categories</h2>
