@@ -19,3 +19,13 @@
   margin: 0 auto;
   padding: 0 2rem;
 }
+
+@media (max-width: 768px) {
+  #root {
+    gap: $section-gap-mobile;
+  }
+
+  .container {
+    gap: $section-gap-mobile;
+  }
+}

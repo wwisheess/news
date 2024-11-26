@@ -4,13 +4,14 @@
   gap: $section-inner-gap;
 }
 
-.countries_languages {
-  position: absolute;
-  left: 2rem;
-  top: 3.5rem;
-  color: #bebebe;
-  @include fadeInTransform;
-}
+// .countries_languages {
+//   position: absolute;
+//   left: 2rem;
+//   top: 3.5rem;
+//   color: #bebebe;
+//   @include fadeInTransform;
+
+// }
 
 .news_container {
   display: flex;
@@ -29,6 +30,14 @@
 
     &:nth-child(even) {
       grid-template-columns: 2fr 3fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .news_row {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
   }
 }

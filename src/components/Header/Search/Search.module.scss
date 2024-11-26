@@ -33,4 +33,15 @@
     top: 50%;
     transform: translateY(-50%);
   }
+
+  @media (max-width: 576px) {
+    &::before {
+      display: none;
+    }
+
+    input {
+      text-align: center;
+      padding: 10px 8px;
+    }
+  }
 }

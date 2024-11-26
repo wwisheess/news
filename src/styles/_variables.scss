@@ -17,7 +17,10 @@ $transition-03: 0.3s ease-in-out;
 $transition-04: 0.4s ease-in-out;
 
 $section-gap: 100px;
+$section-gap-mobile: 50px;
+
 $section-inner-gap: 40px;
+$section-inner-gap-mobile: 30px;
 
 @mixin fadeInTransform {
   animation: fadeInTransform $transition-03;

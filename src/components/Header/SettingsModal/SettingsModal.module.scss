@@ -20,7 +20,8 @@
     flex-direction: column;
     border: $border;
     padding: 1.5rem;
-    width: 40%;
+    width: 85%;
+    max-width: 500px;
     border-radius: 8px;
     box-shadow: $shadow;
     text-align: center;
@@ -34,21 +35,22 @@
 
     .modal_content {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
       gap: 20px;
+    }
 
-      .content_inner {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        // width: 45%;
+    .content_inner {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      // width: 45%;
+    }
 
-        .choose_items_container {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 10px;
-        }
-      }
+    .choose_items_container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
     }
     .button_container {
       display: flex;

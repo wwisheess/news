@@ -9,12 +9,7 @@ import Categories from './pages/Categories/Categories.jsx';
 import { NewsSettingsProvider } from './context/NewsSettingsContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter
-    future={{
-      v7_startTransition: true,
-      v7_relativeSplatPath: true,
-    }}
-  >
+  <BrowserRouter>
     <NewsSettingsProvider>
       <Routes>
         <Route path='/' element={<App />}>

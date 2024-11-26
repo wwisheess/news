@@ -88,11 +88,11 @@ export default function News() {
 
       {!loading && !error && visibleNews.length > 0 && (
         <>
-          <span
+          {/* <span
             className={s.countries_languages}
           >{`News from: ${choosenCountries.join(
             ','
-          )}, Languages: ${choosenLanguages.join(',')}`}</span>
+          )}, Languages: ${choosenLanguages.join(',')}`}</span> */}
 
           <Title
             title={

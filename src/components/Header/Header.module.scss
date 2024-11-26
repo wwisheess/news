@@ -21,13 +21,37 @@
         display: flex;
         gap: 20px;
       }
+    }
 
-      .search_settings {
-        height: 100%;
-        display: flex;
-        gap: 20px;
-        align-items: center;
+    @media (max-width: 768px) {
+      nav {
+        justify-content: center;
+
+        .nav_links {
+          display: none;
+        }
+
+        .search_settings {
+          width: 100%;
+          justify-content: space-between;
+        }
       }
     }
+
+    .mobile_menu {
+      @include fadeInTransform;
+      padding-bottom: 15px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .search_settings {
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
   }
 }

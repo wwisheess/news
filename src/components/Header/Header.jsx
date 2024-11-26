@@ -1,15 +1,15 @@
+import { useState, useEffect } from 'react';
 import s from './Header.module.scss';
-
 import Link from './NavLink/NavLink';
 import Search from './Search/Search';
 import DropdownBtn from './DropdownBtn/DropdownBtn';
 import SettingsBtn from './SettingsBtn/SettingsBtn';
 import SettingsModal from './SettingsModal/SettingsModal';
-import { useState } from 'react';
+import BurgerBtn from './BurgerBtn/BurgerBtn';
 
 const navLinks = [
   { name: 'Home', url: '/' },
-  { name: 'Latest News', url: '/news/latest' },
+  { name: 'Latest', url: '/news/latest' },
   {
     name: 'Categories',
     url: '/categories',
@@ -36,32 +36,40 @@ const navLinks = [
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function handleSettingsClick() {
     setIsModalOpen(true);
   }
 
+  const renderNavLinks = () => (
+    <>
+      {navLinks.map((link, index) => {
+        if (link.dropdownLinks) {
+          return (
+            <DropdownBtn
+              key={index}
+              url={link.url}
+              name={link.name}
+              dropdownLinks={link.dropdownLinks}
+            />
+          );
+        }
+        return <Link key={index} url={link.url} name={link.name} />;
+      })}
+    </>
+  );
+
   return (
     <header className={s.header}>
       <div className={s.header_inner}>
         <nav>
-          <div className={s.nav_links}>
-            {navLinks.map((link, index) => {
-              if (link.dropdownLinks) {
-                return (
-                  <DropdownBtn
-                    key={index}
-                    url={link.url}
-                    name={link.name}
-                    dropdownLinks={link.dropdownLinks}
-                  />
-                );
-              }
-
-              return <Link key={index} url={link.url} name={link.name} />;
-            })}
-          </div>
+          <div className={s.nav_links}>{renderNavLinks()}</div>
           <div className={s.search_settings}>
+            <BurgerBtn
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              isMenuOpen={isMenuOpen}
+            />
             <Search />
             <SettingsBtn onClick={() => handleSettingsClick()} />
             <SettingsModal
@@ -70,6 +78,14 @@ export default function Header() {
             />
           </div>
         </nav>
+        {isMenuOpen && (
+          <div
+            onClick={(e) => !e.target.closest('button') && setIsMenuOpen(false)}
+            className={s.mobile_menu}
+          >
+            {renderNavLinks()}
+          </div>
+        )}
       </div>
     </header>
   );
