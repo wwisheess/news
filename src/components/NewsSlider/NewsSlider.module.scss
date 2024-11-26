@@ -1,0 +1,47 @@
+.slider_container {
+  position: relative;
+  @include fadeInTransform;
+}
+
+.slider {
+  overflow: hidden;
+  height: 100%;
+  border: $border;
+  border-radius: 8px;
+
+  .slider_inner {
+    display: flex;
+    transition: transform $transition-03;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+.bullets {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bullet {
+  z-index: 20;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: $gray-darken;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-02;
+
+  &:hover {
+    background-color: #aaa;
+  }
+
+  &.active {
+    background-color: #aaa;
+  }
+}

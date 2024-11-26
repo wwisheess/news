@@ -1,11 +1,14 @@
 import s from './NewsCard.module.scss';
 import { useState } from 'react';
 import ConfirmActionModal from '../ConfirmActionModal/ConfirmActionModal';
+import { useNewsHelpers } from '../../hooks/UseNewsHelpers';
 import Button from '../Button/Button';
 
 export default function NewsCard({ data }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [externalUrl, setExternalUrl] = useState('');
+  const { decodedDescription, formattedDate, decodedTitle } =
+    useNewsHelpers(data);
 
   const handleReadMoreClick = (url) => {
     setExternalUrl(url);
@@ -16,19 +19,6 @@ export default function NewsCard({ data }) {
     setIsModalOpen(false);
     window.open(externalUrl, '_blank');
   };
-
-  const decodeHtmlEntities = (text) => {
-    const parser = new DOMParser();
-    const decodedString = parser.parseFromString(text, 'text/html')
-      .documentElement.textContent;
-    return decodedString;
-  };
-
-  const publishDate = new Date(data.published_at);
-  const formattedPublishDate = publishDate
-    .toISOString()
-    .slice(0, 16)
-    .replace('T', ' ');
 
   return (
     <div className={s.news_card}>
@@ -42,15 +32,13 @@ export default function NewsCard({ data }) {
         <div className={s.text_container_inner}>
           <div className={s.source_date_container}>
             <span>Source: {data.source} </span>
-            <span className={s.publish_date}>{formattedPublishDate}</span>
+            <span className={s.publish_date}>{formattedDate}</span>
           </div>
-          <h2>{decodeHtmlEntities(data.title)}</h2>
-          <p>{decodeHtmlEntities(data.description)}</p>
+          <h2>{decodedTitle}</h2>
+          <p>{decodedDescription}</p>
 
-          {data.author ? (
+          {data.author && (
             <span className={s.author}>Author: {data.author}</span>
-          ) : (
-            ''
           )}
         </div>
 

@@ -1,7 +1,13 @@
+.news {
+  display: flex;
+  flex-direction: column;
+  gap: $section-inner-gap;
+}
+
 .countries_languages {
   position: absolute;
   left: 2rem;
-  top: 4rem;
+  top: 3.5rem;
   color: #bebebe;
   @include fadeInTransform;
 }

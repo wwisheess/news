@@ -4,10 +4,8 @@ import Title from '../../components/Title/Title.jsx';
 import NewsCard from '../../components/NewsCard/NewsCard.jsx';
 import useFetchNews from '../../hooks/UseFetchNews.js';
 import Loader from '../../components/Loader/Loader.jsx';
-
 import s from './News.module.scss';
 import SeeMoreBtn from '../../components/SeeMoreBtn/SeeMoreBtn.jsx';
-
 import { useNewsSettings } from '../../context/NewsSettingsContext.jsx';
 
 export default function News() {
@@ -65,7 +63,7 @@ export default function News() {
   };
 
   return (
-    <>
+    <section className={s.news}>
       {loading && <Loader />}
 
       {error && (
@@ -128,6 +126,6 @@ export default function News() {
           )}
         </>
       )}
-    </>
+    </section>
   );
 }

@@ -6,7 +6,7 @@
   gap: 20px;
   display: flex;
   flex-direction: column;
-  box-shadow: $shadow;
+  // box-shadow: $shadow;
   @include fadeInTransform;
 
   .news_text_container {
@@ -20,11 +20,11 @@
     .text_container_inner {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 15px;
 
       h2 {
         font-weight: 600;
-        font-size: 30px;
+        font-size: 25px;
       }
 
       .author {
@@ -45,14 +45,14 @@
       }
 
       p {
-        font-size: 20px;
+        font-size: 18px;
       }
     }
   }
 
   .news_img_container {
     min-height: 100px;
-    max-height: 250px;
+    max-height: 200px;
     border-radius: 8px;
     overflow: hidden;
     background-color: $gray;
